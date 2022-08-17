@@ -1,0 +1,38 @@
+{% extends "adminparent.html" %}
+{% block main %}
+<h1 style="text-align:center; color:#1b0885; margin-top:20px;">Manage Enquiries</h1>
+<div class=" container-fluid table-responsive">
+    <table class="table table-bordered table-striped mt-5">
+        <thead class="bg-dark text-white">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Contact No.</th>
+        <th>Email Address</th>
+        <th>Enquiry Text</th>
+        <th>Enquiry Date</th>
+        <th>Delete</th>
+    </tr>
+        </thead>
+    {% for e in enq %}
+        <tbody>
+    <tr>
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.gender}}</td>
+        <td>{{e.address}}</td>
+        <td>{{e.contactno}}</td>
+        <td>{{e.emailaddress}}</td>
+        <td>{{e.enquirytext}}</td>
+        <td>{{e.enquirydate}}</td>
+        <td>
+            <a href="{% url 'adminzone:deleteenquiries' id=e.id %}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% endblock main %}

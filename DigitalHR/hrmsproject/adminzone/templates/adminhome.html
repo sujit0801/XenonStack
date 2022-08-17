@@ -1,0 +1,39 @@
+{% extends "adminparent.html" %}
+{% block main %}
+<div class="container-fluid p-5 bg-light mt-5 " style="width: 1100px;">
+    <h1 style="color:#1b0885;">Manage Notification</h1><br/>
+<form action="{% url 'adminzone:addnotification' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+  <label>Enter Notification :</label>
+  <textarea name="notificationtext" class="form-control" rows="5" ></textarea>
+</div><br><br/>
+            <button type="submit" class="btn p-3 text-white" style="background:#1b0885; width:1000px; font-weight:bold;">Add</button>
+        </div><br/><br/><br/><br/>
+</form>
+    <div class=" container table-responsive">
+    <table class="table table-bordered table-striped ">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th>Id</th>
+            <th>Notification</th>
+            <th>Date</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        {% for n in nf %}
+        <tbody>
+        <tr>
+            <td>{{n.id}}</td>
+            <td>{{n.notificationtext}}</td>
+            <td>{{n.notificationdate}}</td>
+            <td>
+                <a href="{% url 'adminzone:deletenotification' id=n.id %}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor%}
+    </table>
+    </div>
+</form>
+{% endblock main %}

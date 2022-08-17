@@ -1,0 +1,43 @@
+{% extends "parent.html" %}
+{% block body %}
+{% load static%}
+        <div class="container-fluid p-5 bg-light mt-5 mb-5" style="width: 900px;">
+		<h1 style="color:#1b0885;">Enquiry Form</h1><br/>
+		<form action="{% url 'saveenquiry' %}" method="post">
+            {% csrf_token %}
+			<div class="form-group">
+				<label>Enter Name : </label>
+				<input type="text" class="form-control" placeholder="Enter Your Name" required name="name">
+			</div>
+            <label>Select Gender : &nbsp;</label>
+            <div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="gender" value="Male">Male
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="gender" value="Female">Female
+  </label>
+</div>
+            <div class="form-group">
+  <label>Address :</label>
+  <textarea class="form-control" rows="5" name="address"></textarea>
+</div>
+            <div class="form-group">
+				<label>Contact No. : </label>
+				<input type="text" class="form-control" placeholder="Enter Your Contact Number" required name="contactno">
+			</div>
+            <div class="form-group">
+				<label>Email Address : </label>
+				<input type="eamil" class="form-control" placeholder="Enter Email Address" required name="emailaddress">
+			</div>
+             <div class="form-group">
+  <label>Enter Enquiry Text :</label>
+  <textarea class="form-control" rows="5" name="enquirytext"></textarea>
+</div><br><br/>
+            <button type="submit" class="btn p-3 text-white" style="background:#1b0885; width:800px; font-weight:bold;">SUBMIT</button>
+        </div>
+    </form>
+        </div>
+{% endblock body %}

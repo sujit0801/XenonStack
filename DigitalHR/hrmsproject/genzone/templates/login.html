@@ -1,0 +1,28 @@
+{% extends "parent.html" %}
+{% block body %}
+   <div class="container p-5 bg-light mt-5 mb-5" style=" width: 400px; height: 550px;">
+	    {% if msg %}
+	   <div class="alert alert-danger alert-dismissible fade show">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{msg}}</strong>
+		</div>
+	    {% endif %}
+		<h3 style="color:#1b0885;" class="mt-4">Admin Login</h3><br/>
+       <form action="{% url 'validateuser' %}" method="post">
+           {% csrf_token %}
+			<div class="form-group">
+				<label>Email : </label>
+				<input type="text" class="form-control" placeholder="Enter Your Email" required name="adminid">
+			</div><br/>
+			<div class="form-group">
+				<label>Password : </label>
+				<input type="password" class="form-control" placeholder="Enter Your Password" required name="password">
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label">
+				<input type="checkbox" class="form-check-input" required>Remember me
+			    </label>
+			</div><br/>
+			<button type="submit" class="btn p-2 text-white" style="background:#1b0885; width:300px;">Login</button>
+</form>
+{% endblock body %}
