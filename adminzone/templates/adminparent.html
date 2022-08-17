@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <title>Digital HR For ElectroTech</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid p-0 m-0">
+    <div class="container-fluid bg-white border d-flex p-3">
+             <img class="ml-5" src="{% static 'images/logo.png' %}" width="150px" height="120px">
+            <h2 style="font-size:90px; font-weight: bold; margin-left:100px;">Digital HR For ElectroTech</h2>
+    </div>
+    <div class="container-fluid p-0 m-0 ">
+      <nav class="navbar navbar-expand-sm justify-content-end p-0 sticky-top" style="background: #1b0885;">
+    <ul class="navbar-nav mr-4" style="font-size: 18px;">
+      <li class="nav-item mr-5 p-1">
+        <a href="{% url 'adminzone:adminhome' %}" class="nav-link text-white">Admin Home</a>
+      </li>
+      <li class="nav-item mr-5 p-1">
+        <a href="{% url 'adminzone:jobseekers' %}" class="nav-link text-white">Job Seekers</a>
+      </li>
+      <li class="nav-item mr-5 p-1">
+        <a href="{% url 'adminzone:enquiries' %}" class="nav-link text-white">Enquiries</a>
+      </li>
+      <li class="nav-item mr-5 p-1">
+        <a href="{% url 'adminzone:changepassword' %}" class="nav-link text-white">Change Password</a>
+      </li>
+      <li class="nav-item mr-5 p-1">
+        <a href="{% url 'adminzone:logout' %}" class="nav-link text-white">Logout</a>
+      </li>
+    </ul>
+  </nav>
+    </div>
+    <div class="container-fluid" style="min-height: 700px;">
+          {% block main %}
+               {% endblock main %}
+    </div>
+<div class="container-fluid text-white p-5 m-0" style="background: #1b0885; text-align:center; font-size: 25px;">
+            Developed by Teams Of HR Electrotech And Sujit Kumar<br>
+	All &copy; CopyRights Reserved to Electrotech
+</div>
+</body>
+</html>

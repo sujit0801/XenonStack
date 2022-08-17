@@ -1,0 +1,46 @@
+{% extends "adminparent.html" %}
+{% block main %}
+<h1 style="text-align:center; color:#1b0885; margin-top:20px;">Job Seeker Management</h1>
+<div class=" container-fluid table-responsive">
+    <table class="table table-bordered table-striped mt-5">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th>Applicant Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Contact No.</th>
+            <th>Email Address</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Keyskills</th>
+            <th>Date Of Birth</th>
+            <th>Registration Date</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for j in jobs %}
+            <td>{{j.applicantname}}</td>
+            <td>{{j.gender}}</td>
+            <td>{{j.address}}</td>
+            <td>{{j.city}}</td>
+            <td>{{j.country}}</td>
+            <td>{{j.contactno}}</td>
+            <td>{{j.emailaddress}}</td>
+            <td>{{j.qualification}}</td>
+            <td>{{j.experience}}</td>
+            <td>{{j.keyskills}}</td>
+            <td>{{j.dob}}</td>
+            <td>{{j.regdate}}</td>
+            <td>
+                <a href="{% url 'adminzone:deletejobseekers' emailid=j.emailaddress %}">Delete</a>
+            </td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock main %}
